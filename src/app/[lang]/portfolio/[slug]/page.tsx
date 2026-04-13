@@ -33,6 +33,7 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
   const {lang, slug} = await params
 
   if (!isValidLanguage(lang)) {
+    console.log("Language error")
     return notFound()
   }
 
@@ -41,6 +42,7 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
   try {
     portfolio = await getPortfolioData(slug, lang)
   } catch (error) {
+    console.log(error)
     notFound()
   }
 
@@ -62,10 +64,9 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
           <h1 className="text-4xl font-bold mb-2">{portfolio.name}</h1>
           <p className="text-lg text-muted-foreground">{portfolio.excerpts}</p>
         </div>
-        <div
-          className="prose prose-lg dark:prose-invert max-w-none"
-          dangerouslySetInnerHTML={{ __html: portfolio.contentHtml }}
-        />
+        <div className="prose prose-lg dark:prose-invert max-w-none mt-12">
+          {portfolio.contentReact}
+        </div>
       </article>
     </div>
   )

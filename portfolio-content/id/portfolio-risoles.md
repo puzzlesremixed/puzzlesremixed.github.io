@@ -5,6 +5,8 @@ image: '/placeholder-project.png'
 excerpts: 'Risoles, atau biasa disebut risol, adalah pastri berisi daging, biasanya daging cincang, dan sayuran yang dibungkus dadar, dan digoreng setelah dilapisi tepung panir dan kocokan telur ayam.'
 ---
 
+![Risoles Overview](/images/portfolio/example-image-1.jpg)
+
 Hidangan ini juga dapat dipanggang di dalam oven, dan disajikan sebagai hors-d'oeuvre atau entrée ringan. Risoles berukuran kecil dapat dipakai sebagai hiasan untuk hidangan dari potongan besar daging unggas atau daging sapi.[1]
 
 Isi risoles dapat berupa daging ayam, daging sapi, daging ikan, udang, jamur kancing, wortel, kentang, atau buncis. Adonan dadar dibuat dari campuran tepung terigu, kuning telur, mentega (margarin), dan air atau susu.

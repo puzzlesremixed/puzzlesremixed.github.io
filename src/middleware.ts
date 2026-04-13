@@ -1,8 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { isValidLanguage, DEFAULT_LANGUAGE, LANGUAGES } from '@/lib/i18n'
+import {NextRequest, NextResponse} from 'next/server'
+import {isValidLanguage, DEFAULT_LANGUAGE, LANGUAGES} from '@/lib/i18n'
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  if (
+    pathname.includes('.')
+  ) {
+    return NextResponse.next()
+  }
 
   const pathnameHasLanguage = LANGUAGES.some(
     lang => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`
@@ -23,7 +28,8 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
+  // Update the matcher to ignore the /images directory
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|public).*)',
+    '/((?!api|_next/static|_next/image|images|favicon.ico).*)',
   ],
 }

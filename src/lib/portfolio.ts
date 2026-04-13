@@ -1,8 +1,14 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
+import {unified} from "unified";
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeImgSize from 'rehype-img-size'
+import rehypeReact from 'rehype-react'
+import {createElement} from 'react'
+import { jsx, jsxs, Fragment } from 'react/jsx-runtime'
+import {CustomImage} from "@/components/custom-image";
 
 export interface Portfolio {
   id: string // The unique, language-independent ID
@@ -13,7 +19,7 @@ export interface Portfolio {
 }
 
 export interface PortfolioData extends Portfolio {
-  contentHtml: string
+  contentReact: React.ReactElement
 }
 
 const portfolioRootDirectory = path.join(process.cwd(), 'portfolio-content')
@@ -28,17 +34,30 @@ export async function getPortfolioData(slug: string, lang: string): Promise<Port
 
   const matterResult = matter(fileContents)
 
-  const processedContent = await remark()
-    .use(html)
+  const processedContent = await unified()
+    .use(remarkParse) // Parse markdown
+    .use(remarkRehype) // Convert to HTML AST
+    .use(rehypeImgSize, {dir: 'public'}) // Find images in /public and add dimensions
+    .use(rehypeReact, {   // Convert to React
+      jsx,
+      jsxs,
+      createElement,
+      Fragment,
+      components: {
+        img: CustomImage,
+      },
+    })
     .process(matterResult.content)
-  const contentHtml = processedContent.toString()
+
+  const contentReact = processedContent.result
 
   return {
     slug,
-    contentHtml,
-    ...(matterResult.data as { id: string, name: string; image: string | null; excerpts: string }),
+    contentReact,
+    ...(matterResult.data as { id: string; name: string; image: string | null; excerpts: string }),
   }
 }
+
 
 /**
  * Gets all portfolio items for a given language.

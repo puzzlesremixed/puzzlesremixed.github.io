@@ -64,7 +64,7 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
           <h1 className="text-4xl font-bold mb-2">{portfolio.name}</h1>
           <p className="text-lg text-muted-foreground">{portfolio.excerpts}</p>
         </div>
-        <div className="prose prose-lg dark:prose-invert max-w-none mt-12">
+        <div className="dark:prose-invert max-w-none mt-12">
           {portfolio.contentReact}
         </div>
       </article>

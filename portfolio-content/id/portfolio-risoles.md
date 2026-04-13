@@ -1,13 +1,13 @@
 ---
 id: 'risol-portfolio'
-name: 'Risoles Portofolio'
+name: 'Risoles Portofolios'
 image: '/placeholder-project.png'
 excerpts: 'Risoles, atau biasa disebut risol, adalah pastri berisi daging, biasanya daging cincang, dan sayuran yang dibungkus dadar, dan digoreng setelah dilapisi tepung panir dan kocokan telur ayam.'
 ---
 
 ![Risoles Overview](/images/portfolio/example-image-1.jpg)
 
-Hidangan ini juga dapat dipanggang di dalam oven, dan disajikan sebagai hors-d'oeuvre atau entrée ringan. Risoles berukuran kecil dapat dipakai sebagai hiasan untuk hidangan dari potongan besar daging unggas atau daging sapi.[1]
+Hidangan ini juga dapat dipanggang di `dalam` oven, dan disajikan sebagai hors-d'oeuvre atau entrée ringan. Risoles berukuran kecil dapat dipakai sebagai hiasan untuk hidangan dari potongan besar daging unggas atau daging sapi.[1]
 
 Isi risoles dapat berupa daging ayam, daging sapi, daging ikan, udang, jamur kancing, wortel, kentang, atau buncis. Adonan dadar dibuat dari campuran tepung terigu, kuning telur, mentega (margarin), dan air atau susu.
 
@@ -15,6 +15,7 @@ Dua jenis risoles yang dikenal di Indonesia adalah risoles sayuran bercampur dag
 
 ## Asal-usul
 
+![Risoles Overview](/images/portfolio/example-image-1.jpg)
 Risoles dulunya disebut roinsolles, mulai dikenal pada abad ke-13.[1] Pada waktu itu, makanan ini hanya sekadar panekuk yang digoreng di penggorengan memakai mentega atau lemak sapi/lemak babi. Pada perkembangan berikutnya, makanan ini barulah diisi dengan daging cincang.[1]
 
 Dalam istilah kuliner Prancis, kata rissoler berarti menjadikan coklat. Sebuah rissole selalu dibungkus oleh pastri gelembung atau sejenisnya, biasanya digoreng, tetapi kadang-kadang dipanggang di dalam oven. Rissole memiliki rasa asin atau manis. Rasa manis didapat dengan menaburinya dengan gula halus dan melengkapinya dengan saus buah.[3]

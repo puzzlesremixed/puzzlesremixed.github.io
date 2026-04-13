@@ -7,7 +7,7 @@ export const CustomImage = (props: any) => {
       src={props.src}
       width={props.width}
       height={props.height}
-      className="rounded-lg shadow-md"
+      className=""
     />
   )
 }

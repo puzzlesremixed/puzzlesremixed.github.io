@@ -9,6 +9,15 @@ import rehypeReact from 'rehype-react'
 import {createElement} from 'react'
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime'
 import {CustomImage} from "@/components/custom-image";
+import {
+  StyledBlockquote,
+  StyledCode,
+  StyledH2,
+  StyledH3,
+  StyledOL,
+  StyledP,
+  StyledUL
+} from "@/components/styled-paragraph";
 
 export interface Portfolio {
   id: string // The unique, language-independent ID
@@ -45,6 +54,13 @@ export async function getPortfolioData(slug: string, lang: string): Promise<Port
       Fragment,
       components: {
         img: CustomImage,
+        h2: StyledH2,
+        h3: StyledH3,
+        p: StyledP,
+        ul: StyledUL,
+        ol: StyledOL,
+        blockquote: StyledBlockquote,
+        code: StyledCode,
       },
     })
     .process(matterResult.content)

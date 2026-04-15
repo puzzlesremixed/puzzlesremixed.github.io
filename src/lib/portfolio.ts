@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import sizeOf from 'image-size'
 import matter from 'gray-matter'
 import {unified} from "unified";
 import remarkParse from 'remark-parse'
@@ -7,7 +8,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeImgSize from 'rehype-img-size'
 import rehypeReact from 'rehype-react'
 import {createElement} from 'react'
-import { jsx, jsxs, Fragment } from 'react/jsx-runtime'
+import {jsx, jsxs, Fragment} from 'react/jsx-runtime'
 import {CustomImage} from "@/components/custom-image";
 import {
   StyledBlockquote,
@@ -25,6 +26,15 @@ export interface Portfolio {
   image: string | null
   slug: string
   excerpts: string
+  id: string;
+  name: string;
+  image?: {
+    src: string
+    width: number
+    height: number
+  } | null;
+  slug: string;
+  excerpts: string;
 }
 
 export interface PortfolioData extends Portfolio {
@@ -67,10 +77,42 @@ export async function getPortfolioData(slug: string, lang: string): Promise<Port
 
   const contentReact = processedContent.result
 
+  const frontmatter = matterResult.data as {
+    id: string
+    name: string
+    image: string | null
+    excerpts: string
+    stack?: string[]
+  }
+
+  let image = null
+
+  if (frontmatter.image) {
+    try {
+      const imagePath = path.join(process.cwd(), 'public', frontmatter.image)
+
+      if (fs.existsSync(imagePath)) {
+        const buffer = fs.readFileSync(imagePath)
+        const dimensions = sizeOf(buffer)
+
+        if (dimensions.width && dimensions.height) {
+          image = {
+            src: frontmatter.image,
+            width: dimensions.width,
+            height: dimensions.height,
+          }
+        }
+      }
+    } catch (err) {
+      console.warn(`Invalid image: ${frontmatter.image}`, err)
+    }
+  }
+
   return {
     slug,
     contentReact,
-    ...(matterResult.data as { id: string; name: string; image: string | null; excerpts: string }),
+    ...frontmatter,
+    image,
   }
 }
 
@@ -97,7 +139,13 @@ export function getAllPortfolios(lang: string): Portfolio[] {
 
       return {
         slug,
-        ...(matterResult.data as { id: string; name: string; image: string | null; excerpts: string }),
+        ...(matterResult.data as {
+          id: string; name: string; image?: {
+            src: string
+            width: number
+            height: number
+          } | null; excerpts: string
+        }),
       }
     })
 

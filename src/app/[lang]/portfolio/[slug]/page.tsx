@@ -4,6 +4,9 @@ import {ChevronLeft} from 'lucide-react'
 import {Button} from '@/components/ui/button'
 import {notFound} from 'next/navigation'
 import {getAllPortfolioPaths, getPortfolioData} from "@/lib/portfolio";
+import {TechStack} from "@/components/tech-stack"
+import Image from "next/image";
+import { Metadata } from "next"
 
 interface PortfolioDetailPageProps {
   params: Promise<{ lang: string; slug: string }>
@@ -14,17 +17,25 @@ export async function generateStaticParams() {
   return paths
 }
 
-export async function generateMetadata({params}: PortfolioDetailPageProps) {
+export async function generateMetadata({params}: PortfolioDetailPageProps): Promise<Metadata>  {
   const {lang, slug} = await params
   try {
     const portfolio = await getPortfolioData(slug, lang)
     return {
       title: portfolio.name,
       description: portfolio.excerpts,
+      // TODO : chnage with proper seo stuff idk
+      alternates:{
+        canonical: 'https://nextjs.org',
+        languages: {
+          'en-US': 'https://nextjs.org/en-US',
+          'id-ID': 'https://nextjs.org/de-DE',
+        },
+      }
     }
   } catch (error) {
     return {
-      title: 'Portfolio Not Found',
+      title: 'Not Found',
     }
   }
 }
@@ -64,6 +75,12 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
           <h1 className="text-4xl font-bold mb-2">{portfolio.name}</h1>
           <p className="text-lg text-muted-foreground">{portfolio.excerpts}</p>
         </div>
+        {portfolio.image ?
+            <Image
+                {...portfolio.image}
+                alt={portfolio.name}
+            />
+        : <p>no image</p>}
         <div className="dark:prose-invert max-w-none mt-12">
           {portfolio.contentReact}
         </div>

@@ -1,7 +1,7 @@
 ---
 id: 'risol-portfolio'
 name: 'Rissole Portfolio'
-image: '/images/portfolio/example-image-1.png'
+image: '/images/portfolio/example-image-1.jpg'
 excerpts: 'Rissole is "a ball or flattened cake of chopped meat, fish or vegetables mixed with herbs or spices, then coated in breadcrumbs and fried."'
 ---
 

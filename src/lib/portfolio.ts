@@ -21,11 +21,6 @@ import {
 } from "@/components/styled-paragraph";
 
 export interface Portfolio {
-  id: string // The unique, language-independent ID
-  name: string
-  image: string | null
-  slug: string
-  excerpts: string
   id: string;
   name: string;
   image?: {
@@ -35,6 +30,7 @@ export interface Portfolio {
   } | null;
   slug: string;
   excerpts: string;
+  stack?: string[];
 }
 
 export interface PortfolioData extends Portfolio {

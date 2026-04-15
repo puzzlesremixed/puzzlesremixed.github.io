@@ -81,6 +81,7 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
                 alt={portfolio.name}
             />
         : <p>no image</p>}
+        <TechStack stack={portfolio.stack}/>
         <div className="dark:prose-invert max-w-none mt-12">
           {portfolio.contentReact}
         </div>

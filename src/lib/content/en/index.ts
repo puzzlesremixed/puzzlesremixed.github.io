@@ -8,6 +8,10 @@ export const enContent = {
     subtitle: 'Showcasing my work and projects',
     viewPortfolio: 'View Portfolio',
   },
+  notFound:{
+    title: 'Not Found',
+    subtitle: 'English not found desc',
+  },
   portfolio: {
     title: 'Portfolio',
     backHome: 'Back to Home',

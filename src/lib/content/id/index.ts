@@ -8,6 +8,10 @@ export const idContent = {
     subtitle: 'Lorem ipsum',
     viewPortfolio: 'Lorem ipsum',
   },
+  notFound:{
+    title: 'Not Found',
+    subtitle: 'indo not found',
+  },
   portfolio: {
     title: 'Portofolio',
     backHome: 'Kembali ke beranda',

@@ -4,11 +4,10 @@ import {Analytics} from '@vercel/analytics/next'
 import {ThemeProvider} from '@/components/theme-provider'
 import './globals.css'
 import {cn} from "@/lib/utils";
-import {dotPatternStyle, linePatternStyle} from "@/lib/const";
 
-const manropeHeading = Manrope({subsets:['latin'],variable:'--font-heading'});
+const manropeHeading = Manrope({subsets: ['latin'], variable: '--font-heading'});
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({subsets: ['latin'], variable: '--font-sans'});
 const _geistMono = Geist_Mono({subsets: ["latin"], variable: '--font-mono'});
 
 export const metadata: Metadata = {
@@ -42,12 +41,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning
-          className={cn( _geistMono.variable, "font-sans", geist.variable, manropeHeading.variable)}>
-    <body className={cn("font-sans antialiased", dotPatternStyle)}>
+          className={cn(_geistMono.variable, "font-sans", geist.variable, manropeHeading.variable)}>
+    <body className={cn("font-sans antialiased dot-pattern")}>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <main className={"bg-background container border-x min-h-screen mx-auto"}>
-
+      <main className={"bg-background w-full max-w-6xl border-x min-h-screen mx-auto"}>
         {children}
+        <footer className="border-t mx-auto py-4 px-8">
+          <p className="text-muted-foreground">All rights reserved.</p>
+        </footer>
       </main>
     </ThemeProvider>
     {process.env.NODE_ENV === 'production' && <Analytics/>}

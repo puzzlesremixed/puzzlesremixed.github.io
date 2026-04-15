@@ -3,7 +3,7 @@ id: 'risol-portfolio'
 name: 'Risoles Portofolios'
 image: '/images/portfolio/example-image-1.jpg'
 excerpts: 'Risoles, atau biasa disebut risol, adalah pastri berisi daging, biasanya daging cincang, dan sayuran yang dibungkus dadar, dan digoreng setelah dilapisi tepung panir dan kocokan telur ayam.'
-stack: ['vercel', 'nextjs']
+stack: [ 'vercel', 'nextjs' ]
 ---
 
 ![Risoles Overview](/images/portfolio/example-image-1.jpg)

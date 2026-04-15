@@ -8,10 +8,10 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {Button} from '@/components/ui/button'
-import {Languages} from 'lucide-react'
 
 import slugMap from '@/lib/generated/slug-map.json'
 import {getContent, Language, LANGUAGES} from "@/lib/i18n";
+import {RiTranslate2} from "@remixicon/react";
 
 export function LanguageSwitcher() {
   const router = useRouter()
@@ -51,7 +51,7 @@ export function LanguageSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          <Languages className="h-[1.2rem] w-[1.2rem]"/>
+          <RiTranslate2/>
           <span className="sr-only">Change language</span>
         </Button>
       </DropdownMenuTrigger>

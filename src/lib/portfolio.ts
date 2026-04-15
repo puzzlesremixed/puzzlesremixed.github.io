@@ -81,28 +81,7 @@ export async function getPortfolioData(slug: string, lang: string): Promise<Port
     stack?: string[]
   }
 
-  let image = null
-
-  if (frontmatter.image) {
-    try {
-      const imagePath = path.join(process.cwd(), 'public', frontmatter.image)
-
-      if (fs.existsSync(imagePath)) {
-        const buffer = fs.readFileSync(imagePath)
-        const dimensions = sizeOf(buffer)
-
-        if (dimensions.width && dimensions.height) {
-          image = {
-            src: frontmatter.image,
-            width: dimensions.width,
-            height: dimensions.height,
-          }
-        }
-      }
-    } catch (err) {
-      console.warn(`Invalid image: ${frontmatter.image}`, err)
-    }
-  }
+  let image = getImage(frontmatter.image)
 
   return {
     slug,
@@ -133,6 +112,9 @@ export function getAllPortfolios(lang: string): Portfolio[] {
       const fileContents = fs.readFileSync(fullPath, 'utf8')
       const matterResult = matter(fileContents)
 
+
+      let image = getImage(matterResult.data.image)
+
       return {
         slug,
         ...(matterResult.data as {
@@ -142,6 +124,7 @@ export function getAllPortfolios(lang: string): Portfolio[] {
             height: number
           } | null; excerpts: string
         }),
+        image
       }
     })
 
@@ -172,4 +155,30 @@ export function getAllPortfolioPaths() {
   })
 
   return paths
+}
+
+function getImage(imageSrc?: string | null) {
+  if (!imageSrc) return null
+  let image;
+  if (imageSrc) {
+    try {
+      const imagePath = path.join(process.cwd(), 'public', imageSrc)
+
+      if (fs.existsSync(imagePath)) {
+        const buffer = fs.readFileSync(imagePath)
+        const dimensions = sizeOf(buffer)
+
+        if (dimensions.width && dimensions.height) {
+          image = {
+            src: imageSrc,
+            width: dimensions.width,
+            height: dimensions.height,
+          }
+        }
+      }
+    } catch (err) {
+      console.warn(`Invalid image: ${imageSrc}`, err)
+    }
+  }
+  return image
 }

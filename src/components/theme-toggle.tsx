@@ -1,12 +1,12 @@
 'use client'
 
-import { useTheme } from 'next-themes'
-import { Button } from '@/components/ui/button'
-import { Moon, Sun } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import {useTheme} from 'next-themes'
+import {Button} from '@/components/ui/button'
+import {useEffect, useState} from 'react'
+import {RiMoonLine, RiSunLine} from "@remixicon/react";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const {theme, setTheme} = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export function ThemeToggle() {
   }, [])
 
   if (!mounted) {
-    return <Button variant="outline" size="icon" disabled />
+    return <Button variant="outline" size="icon" disabled/>
   }
 
   return (
@@ -25,9 +25,9 @@ export function ThemeToggle() {
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
-        <Sun className="w-4 h-4" />
+        <RiSunLine/>
       ) : (
-        <Moon className="w-4 h-4" />
+        <RiMoonLine/>
       )}
     </Button>
   )

@@ -2,6 +2,7 @@ import {getContent} from '@/lib/i18n'
 import {getAllPortfolios} from "@/lib/portfolio";
 import Link from "next/link";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
 
 interface HomePageProps {
   params: Promise<{ lang: string }>

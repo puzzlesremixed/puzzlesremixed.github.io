@@ -6,9 +6,9 @@ import './globals.css'
 import {cn} from "@/lib/utils";
 import {dotPatternStyle, linePatternStyle} from "@/lib/const";
 
-const manropeHeading = Manrope({subsets: ['latin'], variable: '--font-heading'});
+const manropeHeading = Manrope({subsets:['latin'],variable:'--font-heading'});
 
-const _geist = Geist({subsets: ["latin"], variable: '--font-sans'});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 const _geistMono = Geist_Mono({subsets: ["latin"], variable: '--font-mono'});
 
 export const metadata: Metadata = {
@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning
-          className={cn(manropeHeading.variable, _geist.variable, _geistMono.variable)}>
+          className={cn( _geistMono.variable, "font-sans", geist.variable, manropeHeading.variable)}>
     <body className={cn("font-sans antialiased", dotPatternStyle)}>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <main className={"bg-background container border-x min-h-screen mx-auto"}>

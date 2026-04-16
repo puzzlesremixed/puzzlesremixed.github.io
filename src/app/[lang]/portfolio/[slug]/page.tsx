@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {getContent, isValidLanguage} from '@/lib/i18n'
+import {getContent, isValidLanguage, Language} from '@/lib/i18n'
 import {Button} from '@/components/ui/button'
 import {notFound} from 'next/navigation'
 import {getAllPortfolioPaths, getPortfolioData} from "@/lib/portfolio";
@@ -11,7 +11,7 @@ import {GridSection} from "@/components/grid-section";
 import React from "react";
 
 interface PortfolioDetailPageProps {
-  params: Promise<{ lang: string; slug: string }>
+  params: Promise<{ lang: Language; slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -45,11 +45,6 @@ export async function generateMetadata({params}: PortfolioDetailPageProps): Prom
 export default async function PortfolioDetailPage({params}: PortfolioDetailPageProps) {
   const {lang, slug} = await params
 
-  if (!isValidLanguage(lang)) {
-    console.log("Language error")
-    return notFound()
-  }
-
   const content = getContent(lang)
   let portfolio
   try {
@@ -66,17 +61,17 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
   return (
     <>
       <GridSection className={"text-start p-0 flex justify-start"}>
-        <Link href={"/"} className={"border-e p-4"}>
+        <Link href={`/${lang}`} className={"border-e p-4"}>
           <RiArrowLeftLine className={"inline-block"}/>
         </Link>
-        <div className={"py-4 ml-4 text-muted-foreground font-mono"}>GO BACK TO HOME</div>
+        <div className={"py-4 ml-4 text-muted-foreground font-mono"}>{content.portfolio.backHome.toUpperCase()}</div>
       </GridSection>
       <GridSection className={"text-start p-0 flex justify-start"}>
         <div className={"border-e p-4 w-14.25 line-pattern"}></div>
-        <Link href={"/portfolio"} className={"border-e p-4"}>
+        <Link href={`/${lang}/portfolio`} className={"border-e p-4"}>
           <RiArrowLeftLine className={"inline-block"}/>
         </Link>
-        <div className={"py-4 ml-4 text-muted-foreground font-mono"}>VIEW MORE PORTFOLIO</div>
+        <div className={"py-4 ml-4 text-muted-foreground font-mono"}>{content.portfolio.backPort.toUpperCase()}</div>
       </GridSection>
       <GridSection className={"p-8"}>
         <h1 className="text-4xl font-bold mb-2">{portfolio.name}</h1>
@@ -94,7 +89,7 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
             {portfolio.contentReact}
           </div>
         </article>
-        <div className={"p-8"}>
+        <div className={""}>
           <TechStack stack={portfolio.stack}/>
           Table of contents
         </div>

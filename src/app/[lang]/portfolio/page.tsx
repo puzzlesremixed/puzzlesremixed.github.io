@@ -23,10 +23,10 @@ export default async function PortfolioPage({params}: PortfolioPageProps) {
   return (
     <div className="">
       <GridSection className={"text-start p-0 flex justify-start"}>
-        <Link href={"/"} className={"border-e p-4"}>
+        <Link href={`/${lang}`} className={"border-e p-4"}>
           <RiArrowLeftLine className={"inline-block"}/>
         </Link>
-        <div className={"py-4 ml-4 text-muted-foreground font-mono"}>GO BACK</div>
+        <div className={"py-4 ml-4 text-muted-foreground font-mono"}>{content.portfolio.backHome.toUpperCase()}</div>
       </GridSection>
       <GridSection>
         <h2 className="text-2xl font-bold">{content.portfolio.title}</h2>

@@ -6,7 +6,7 @@ export const idContent = {
   home: {
     title: 'Lorem ipsum',
     subtitle: 'Lorem ipsum',
-    viewPortfolio: 'Lorem ipsum',
+    viewPortfolio: 'Lihat lebih banyak',
   },
   notFound:{
     title: 'Not Found',
@@ -15,6 +15,7 @@ export const idContent = {
   portfolio: {
     title: 'Portofolio',
     backHome: 'Kembali ke beranda',
+    backPort: 'Lihat lebih banyak portfolio',
   },
   languages: {
     en: 'Bahasa Inggris',

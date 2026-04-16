@@ -45,8 +45,8 @@ export default async function HomePage({params}: HomePageProps) {
         ))}
       </div>
       <GridSection className={"text-end p-0 flex justify-end"}>
-        <div className={"py-4 mr-4 text-muted-foreground font-mono"}>SEE MORE</div>
-        <Link href={"/portfolio"} className={"border-s p-4"}>
+        <div className={"py-4 mr-4 text-muted-foreground font-mono"}>{content.home.viewPortfolio.toUpperCase()}</div>
+        <Link href={`/${lang}/portfolio`} className={"border-s p-4"}>
           <RiArrowRightLine className={"inline-block"}/>
         </Link>
       </GridSection>

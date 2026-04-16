@@ -6,7 +6,7 @@ export const enContent = {
   home: {
     title: 'Developer Portfolio',
     subtitle: 'Showcasing my work and projects',
-    viewPortfolio: 'View Portfolio',
+    viewPortfolio: 'View more',
   },
   notFound:{
     title: 'Not Found',
@@ -14,7 +14,8 @@ export const enContent = {
   },
   portfolio: {
     title: 'Portfolio',
-    backHome: 'Back to Home',
+    backHome: 'Go Back Home',
+    backPort: 'View more portfolios',
   },
   languages: {
     en: 'English',

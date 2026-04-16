@@ -19,23 +19,7 @@ import {
   StyledP,
   StyledUL
 } from "@/components/styled-paragraph";
-
-export interface Portfolio {
-  id: string;
-  name: string;
-  image?: {
-    src: string
-    width: number
-    height: number
-  } | null;
-  slug: string;
-  excerpts: string;
-  stack?: string[];
-}
-
-export interface PortfolioData extends Portfolio {
-  contentReact: React.ReactElement
-}
+import {Portfolio, PortfolioData, PortfolioFrontmatter} from "@/lib/portfolio.d";
 
 const portfolioRootDirectory = path.join(process.cwd(), 'portfolio-content')
 
@@ -73,18 +57,11 @@ export async function getPortfolioData(slug: string, lang: string): Promise<Port
 
   const contentReact = processedContent.result
 
-  const frontmatter = matterResult.data as {
-    id: string
-    name: string
-    image: string | null
-    excerpts: string
-    stack?: string[]
-  }
+  const frontmatter = matterResult.data as PortfolioFrontmatter
 
   let image = getImage(frontmatter.image)
 
   return {
-    slug,
     contentReact,
     ...frontmatter,
     image,
@@ -116,14 +93,8 @@ export function getAllPortfolios(lang: string): Portfolio[] {
       let image = getImage(matterResult.data.image)
 
       return {
+        ...(matterResult.data as PortfolioFrontmatter),
         slug,
-        ...(matterResult.data as {
-          id: string; name: string; image?: {
-            src: string
-            width: number
-            height: number
-          } | null; excerpts: string
-        }),
         image
       }
     })

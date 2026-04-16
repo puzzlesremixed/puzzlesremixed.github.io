@@ -9,6 +9,8 @@ import {Metadata} from "next"
 import {RiArrowLeftLine, RiArrowLeftSLine} from "@remixicon/react";
 import {GridSection} from "@/components/grid-section";
 import React from "react";
+import {ViewSourceButton} from "@/components/view-source-btn";
+import {ViewDemoButton} from "@/components/view-demo-btn";
 
 interface PortfolioDetailPageProps {
   params: Promise<{ lang: Language; slug: string }>
@@ -90,6 +92,8 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
           </div>
         </article>
         <div className={""}>
+          <ViewSourceButton href={portfolio.source}/>
+          <ViewDemoButton href={portfolio.url}/>
           <TechStack stack={portfolio.stack}/>
           Table of contents
         </div>

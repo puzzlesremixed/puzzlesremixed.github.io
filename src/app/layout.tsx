@@ -11,25 +11,19 @@ const geist = Geist({subsets: ['latin'], variable: '--font-sans'});
 const _geistMono = Geist_Mono({subsets: ["latin"], variable: '--font-mono'});
 
 export const metadata: Metadata = {
-  title: 'Developer Portfolio',
+  title: 'Portfolio Page - Vanya Namira',
   description: 'Developer portfolio and projects showcase',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/icon1.png',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
+        url: '/icon0.svg',
         type: 'image/svg+xml',
       },
     ],
-    // apple: '/apple-icon.png',
+    apple: '/apple-icon.png',
   },
 }
 
@@ -42,6 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning
           className={cn(_geistMono.variable, "font-sans", geist.variable, manropeHeading.variable)}>
+    <head>
+      <meta name="apple-mobile-web-app-title" content="Portfolio Page - Vanya Namira"/>
+    </head>
     <body className={cn("font-sans antialiased dot-pattern")}>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <main className={"bg-background w-full max-w-6xl border-x min-h-screen mx-auto"}>

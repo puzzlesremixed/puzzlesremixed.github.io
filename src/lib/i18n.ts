@@ -5,7 +5,7 @@ export type Language = 'en' | 'id'
 export const LANGUAGES = ['en', 'id'] as const
 export const DEFAULT_LANGUAGE: Language = 'en'
 
-type Content = typeof enContent
+export type Content = typeof enContent
 
 const contents: Record<Language, Content> = {
   en: enContent,

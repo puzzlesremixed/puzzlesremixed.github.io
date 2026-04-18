@@ -1,10 +1,10 @@
 {
-  "name": "my-project",
+  "name": "personal-web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
+    "build": "npm run generate-slugs && next build --webpack",
     "start": "next start",
     "lint": "eslint .",
     "generate-slugs": "node src/scripts/generateMap.mjs"

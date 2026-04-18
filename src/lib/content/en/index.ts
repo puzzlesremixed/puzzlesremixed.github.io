@@ -44,7 +44,7 @@ export const enContent = {
   },
   notFound: {
     title: 'Not Found',
-    subtitle: 'The',
+    subtitle: 'We cannot found the page you\'re looking for.',
   },
   portfolio: {
     title: 'Projects',

@@ -94,6 +94,12 @@ export const TECH_STACK_DATA: Record<string, TechDetails> = {
     logo: '/logo/nodejs.svg',
     logoWhite: '/logo/white/nodejs.svg',
     url: 'https://nodejs.org/en'
+  },
+  'unity':{
+    name: 'Unity',
+    logo: '/logo/unity.svg',
+    logoWhite: '/logo/white/unity.svg',
+    url: 'https://unity.com/'
   }
 };
 

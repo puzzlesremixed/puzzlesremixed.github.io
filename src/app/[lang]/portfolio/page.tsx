@@ -29,7 +29,8 @@ export default async function PortfolioPage({params}: PortfolioPageProps) {
         <div className={"py-4 ml-4 text-muted-foreground font-mono"}>{content.portfolio.backHome.toUpperCase()}</div>
       </GridSection>
       <GridSection>
-        <h2 className="text-2xl font-bold">{content.portfolio.title}</h2>
+        <h1 className="text-2xl font-bold">{content.portfolio.title}</h1>
+        <p className={"text-muted-foreground"}>{content.portfolio.subtitle}</p>
       </GridSection>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px border-b bg-border overflow-hidden">
         {portfolios.map((portfolio) => (

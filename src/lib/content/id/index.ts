@@ -48,6 +48,7 @@ export const idContent = {
   },
   portfolio: {
     title: 'Portofolio',
+    subtitle: 'Terkadang hal yang belum terselesaikan, terkadang hasil ekxperimen kecil, dan beberapa hal yang tidak dapat ditampilkan ke publik,',
     backHome: 'Kembali ke beranda',
     backPort: 'Lihat lebih banyak portfolio',
   },

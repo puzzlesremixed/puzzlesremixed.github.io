@@ -16,7 +16,7 @@ const SkillsSection = ({content}: SkillsSectionProps) => {
     skillsRemainder === 0 ? 0 : skillCols - skillsRemainder;
 
   return (
-    <GridSection className={"bg-purple-800 p-0 text-white"}>
+    <GridSection className={"bg-purple-600 dark:bg-purple-800 p-0 text-white"}>
       <div className={"px-8 py-4 border-b"}>
         <h2 className={"text-2xl font-heading font-bold"}>
           {content.skills.title}
@@ -29,13 +29,13 @@ const SkillsSection = ({content}: SkillsSectionProps) => {
         }
       >
         {Object.entries(SKILLS).map(([key, value], i) => (
-          <Tooltip>
-            <TooltipTrigger key={key}>
+          <Tooltip key={key}>
+            <TooltipTrigger>
               <a
                 href={value.url}
                 target="_blank"
                 className={
-                  "flex items-center bg-purple-800 justify-center py-3 cursor-pointer"
+                  "flex items-center bg-purple-600 dark:bg-purple-800 justify-center py-3 cursor-pointer"
                 }
               >
                 <CustomSvg
@@ -57,7 +57,7 @@ const SkillsSection = ({content}: SkillsSectionProps) => {
         {Array.from({length: skillsPlaceholders}).map((_, i) => (
           <div
             key={`placeholder-${i}`}
-            className="bg-purple-800 line-pattern"
+            className="bg-purple-600 dark:bg-purple-800 line-pattern"
           />
         ))}
       </div>

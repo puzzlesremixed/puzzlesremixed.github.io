@@ -48,6 +48,7 @@ export const enContent = {
   },
   portfolio: {
     title: 'Projects',
+    subtitle: 'Some incomplete, some just proof of concepts, some I cannot show publicly.',
     backHome: 'Go Back Home',
     backPort: 'View more portfolios',
   },

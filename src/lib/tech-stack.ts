@@ -3,7 +3,7 @@ export type TechDetails = {
   logo?: string;
   logoWhite?: string;
   className?: string;
-  url?:string;
+  url?: string;
 };
 
 export const TECH_STACK_DATA: Record<string, TechDetails> = {
@@ -82,6 +82,18 @@ export const TECH_STACK_DATA: Record<string, TechDetails> = {
     logo: '/logo/php.svg',
     logoWhite: '/logo/white/php.svg',
     url: 'https://www.php.net/'
+  },
+  'livewire': {
+    name: 'Laravel Livewire',
+    logo: '/logo/livewire.svg',
+    logoWhite: '/logo/white/livewire.svg',
+    url: 'https://livewire.laravel.com/'
+  },
+  'nodejs':{
+    name: 'Node.js',
+    logo: '/logo/nodejs.svg',
+    logoWhite: '/logo/white/nodejs.svg',
+    url: 'https://nodejs.org/en'
   }
 };
 

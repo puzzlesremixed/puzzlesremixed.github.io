@@ -1,26 +1,27 @@
-import { SKILLS } from "@/lib/const";
-import { GridSection } from "./grid-section";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import {SKILLS} from "@/lib/const";
+import {GridSection} from "./grid-section";
+import {Tooltip, TooltipContent, TooltipTrigger} from "./ui/tooltip";
 import CustomSvg from "./custom-svg";
-import { Content } from "@/lib/i18n";
-import { cn } from "@/lib/utils";
+import {Content} from "@/lib/i18n";
+import {cn} from "@/lib/utils";
 
 interface SkillsSectionProps {
   content: Content;
 }
 
-const SkillsSection = ({ content }: SkillsSectionProps) => {
+const SkillsSection = ({content}: SkillsSectionProps) => {
   const skillCols = 5;
   const skillsRemainder = SKILLS.length % skillCols;
   const skillsPlaceholders =
     skillsRemainder === 0 ? 0 : skillCols - skillsRemainder;
 
   return (
-    <GridSection className={"bg-purple-800 p-0"}>
+    <GridSection className={"bg-purple-800 p-0 text-white"}>
       <div className={"px-8 py-4 border-b"}>
-        <h2 className={"font-heading mb-1 text-xl font-semibold text-white"}>
+        <h2 className={"text-2xl font-heading font-bold"}>
           {content.skills.title}
         </h2>
+        <p>{content.skills.subtitle}</p>
       </div>
       <div
         className={
@@ -40,7 +41,7 @@ const SkillsSection = ({ content }: SkillsSectionProps) => {
                 <CustomSvg
                   src={value.logoWhite}
                   className={cn(
-                    "w-7 h-7 text-white fill-current",
+                    "w-7 h-7  fill-current",
                     value.className,
                   )}
                   style={"filter:"}
@@ -53,7 +54,7 @@ const SkillsSection = ({ content }: SkillsSectionProps) => {
           </Tooltip>
         ))}
 
-        {Array.from({ length: skillsPlaceholders }).map((_, i) => (
+        {Array.from({length: skillsPlaceholders}).map((_, i) => (
           <div
             key={`placeholder-${i}`}
             className="bg-purple-800 line-pattern"

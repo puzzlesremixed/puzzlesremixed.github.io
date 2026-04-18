@@ -95,7 +95,6 @@ export default async function PortfolioDetailPage({params}: PortfolioDetailPageP
           <ViewSourceButton href={portfolio.source}/>
           <ViewDemoButton href={portfolio.url}/>
           <TechStack stack={portfolio.stack}/>
-          Table of contents
         </div>
       </div>
     </>

@@ -31,7 +31,7 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* Hero of some kind section */}
       <section className="py-24 px-8 border-b min-h-">
         <div className={"mb-6"}>
-          <h1 className="text-4xl mb-2 font-bold">{content.home.title}</h1>
+          <h1 className="text-4xl mb-2 font-heading font-bold">{content.home.title}</h1>
           <p className="text-lg text-muted-foreground">
             {content.home.subtitle}
           </p>
@@ -45,7 +45,7 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* About me section */}
       <GridSection className={"bg-yellow-500 min-h-42 text-black"}>
         <div className={"max-w-xl"}>
-          <h2 className={"font-heading mb-1 text-xl font-semibold"}>
+          <h2 className={"text-2xl font-heading font-bold mb-1"}>
             {content.about.title}
           </h2>
           <p className={"text-justify"}>{content.about.content}</p>
@@ -55,7 +55,7 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* Protfolio/projects section */}
       <GridSection className="p-0 flex flex-row justify-between">
         <div className={"py-4 px-8"}>
-          <h2 className="text-2xl font-semibold">{content.portfolio.title}</h2>
+          <h2 className="text-2xl font-heading font-bold">{content.portfolio.title}</h2>
         </div>
         <div className={"text-end flex justify-end items-center"}>
           <div className={"py-4 mr-4 text-muted-foreground font-mono"}>
@@ -94,7 +94,7 @@ export default async function HomePage({ params }: HomePageProps) {
         className={"bg-[#00153c] text-white flex flex-col md:flex-row p-0"}
       >
         <div className={"py-4 px-8 w-full"}>
-          <h2 className={"font-heading text-xl font-semibold"}>
+          <h2 className={"text-2xl font-heading font-bold"}>
             {content.cta.title}
           </h2>
           <p>{content.cta.subtitle}</p>

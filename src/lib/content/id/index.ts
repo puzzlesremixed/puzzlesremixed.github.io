@@ -26,7 +26,7 @@ export const idContent = {
     content: [
       {
         isPresent: true,
-        timeframe: '2025-present',
+        timeframe: '2025 - Sekarang',
         type: 'Fulltime',
         position: 'Fullstack Developer',
         location: 'Rantai Media Digital',
@@ -34,16 +34,17 @@ export const idContent = {
       },
       {
         isPresent: false,
-        timeframe: '2025-2026',
+        timeframe: 'Juli 2025 - Januari 2026',
         type: 'Intern',
         position: 'Intern, Fullstack Developer',
         location: 'Sitespirit',
-        description: 'At Sitespirit, I focused on building web interfaces, converting the design team\'s ideas into code. It was also here that I had the opportunity to delve deeper into Content Management Systems.',
+        description: 'Pada Sitespirit, saya berfokus dalam membangun antarmuka web, mengubah rancangan dari tim desain ke bentuk kode. Disini juga saya saya mendapat kesempatan untuk mendalami Content Management System.',
       },
     ]
   },
   skills: {
-   title : 'Skills',
+   title : 'Tech stacks',
+   subtitle : 'Ini adalah alat-alat yang saya gunakan. Arahkan kursor ke setiap entri untuk informasi lebih lanjut.',
   },
   portfolio: {
     title: 'Portofolio',

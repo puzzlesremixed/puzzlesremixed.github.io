@@ -11,16 +11,16 @@ const ExperienceSection
    return (
     <>
     <GridSection className="">
-      <h2 className="text-2xl font-semibold">{content.experience.title}</h2>
+      <h2 className="text-2xl font-heading font-bold">{content.experience.title}</h2>
     </GridSection>
     <GridSection className={"line-pattern py-4 px-8"}>
       <div className={"flex flex-col gap-4"}>
         {Object.entries(content.experience.content).map(([key, value], i) => (
-          <div className={"border bg-background "} key={i}>
+          <div className={cn("border bg-background", value.isPresent && "dark:border-teal-900 border-teal-700")} key={i}>
             <div
               className={cn(
                 "w-full px-4 py-1",
-                value.isPresent ? "bg-teal-700" : "border-b",
+                value.isPresent ? "bg-teal-700 dark:bg-teal-900 text-white" : "border-b",
               )}
             >
               <p className={cn("font-mono", value.isPresent && "")}>

@@ -22,7 +22,7 @@ export const enContent = {
     content: [
       {
         isPresent: true,
-        timeframe: '2025-present',
+        timeframe: '2025 - Present',
         type: 'Fulltime',
         position: 'Fullstack Developer',
         location: 'Rantai Media Digital',
@@ -30,16 +30,17 @@ export const enContent = {
       },
       {
         isPresent: false,
-        timeframe: '2025-2026',
+        timeframe: 'July 2025 - January 2026',
         type: 'Intern',
-        position: 'Fullstack Developer',
+        position: 'Intern, Fullstack Developer',
         location: 'Sitespirit',
         description: 'At Sitespirit, I focused on building web interfaces, converting the design team\'s ideas into code. It was also here that I had the opportunity to delve deeper into Content Management Systems.',
       },
     ]
   },
   skills: {
-    title: 'Skills',
+    title: 'Tech stacks',
+    subtitle : 'These are tools that I use. Hover over each entry for more information.',
   },
   notFound: {
     title: 'Not Found',
